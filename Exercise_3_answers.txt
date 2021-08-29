@@ -1,0 +1,47 @@
+At Step 14, We have already pushed from project 2 in the same repository and hence it has some changes that were not present locally, so push request was rejected from project 1. Now, I have pulled the changing locally and removed the conflict manually and then pushed to origin after commiting merge. 
+
+At Step 30, As, I have merged branch testing into master, master branch is updated with the changes present in testing branch too.
+During this merge, git found some conflict in test1 file, so we have to solve those conflicts manually and then commiting those changes, we get an updated file in master branch.
+sparsh@sparsh-VivoBook-15-ASUS-Laptop-X507UF:~/Desktop/git/Exercise3/project2/test_project$ git branch
+* master
+  staging
+  testing
+sparsh@sparsh-VivoBook-15-ASUS-Laptop-X507UF:~/Desktop/git/Exercise3/project2/test_project$ git log --oneline
+ad2ff76 (HEAD -> master) Merge branch 'testing'
+454b339 (origin/master, origin/HEAD) Added 8 definition
+9e2833b Added 7 definition
+967dcab Added 6 definition
+4fc0c5d Added 5 definition
+d7a52d3 Added 4 definition
+b9c8321 Added 3 definition
+30238ce Added 2 definition
+0853942 Added 1 definition
+b666145 (origin/testing, testing, staging) Added H definition
+9cb3968 Added G definition
+435bb1c Added F definition
+0ff4205 Added E definition
+8a2a8c9 Added D definition
+6b26106 Added C definition
+21be266 Added B definition
+2c90113 Added A definition
+732a033 (origin/staging) Merge branch 'staging' of https://github.com/Sparsh-Goyal-2000/test_project into staging
+22aba36 Third Commit
+1638354 Second Commit
+a64d96d First Commit
+cbee9c0 Initial Commit
+sparsh@sparsh-VivoBook-15-ASUS-Laptop-X507UF:~/Desktop/git/Exercise3/project2/test_project$ git checkout testing 
+Switched to branch 'testing'
+sparsh@sparsh-VivoBook-15-ASUS-Laptop-X507UF:~/Desktop/git/Exercise3/project2/test_project$ git log --oneline
+b666145 (HEAD -> testing, origin/testing, staging) Added H definition
+9cb3968 Added G definition
+435bb1c Added F definition
+0ff4205 Added E definition
+8a2a8c9 Added D definition
+6b26106 Added C definition
+21be266 Added B definition
+2c90113 Added A definition
+732a033 (origin/staging) Merge branch 'staging' of https://github.com/Sparsh-Goyal-2000/test_project into staging
+22aba36 Third Commit
+1638354 Second Commit
+a64d96d First Commit
+cbee9c0 Initial Commit
