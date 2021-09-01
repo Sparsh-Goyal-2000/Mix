@@ -1,0 +1,126 @@
+Create two folders project1 and project2 locally. Create a repository in github or bitbucket, name it test_project.
+
+mkdir project1
+mkdir project2
+
+====================================
+
+Switch to project1
+
+cd project1
+git init
+git remote add origin https://github.com/Sparsh-Goyal-2000/test_project.git
+git push origin master
+
+====================================
+
+Switch to a new branch - 'staging'.
+Add a file in it - 'test1' and add content to it 'This is first commit'.
+Push it to github.
+
+git checkout -b staging
+gedit test1 => added line and saved
+git add test1
+git commit -m 'Added test1'
+git push origin staging
+
+====================================
+
+Move to folder project2.
+Clone the repo in project2.
+
+cd ../project2
+git clone https://github.com/Sparsh-Goyal-2000/test_project.git
+
+====================================
+
+Switch to staging.
+Change the text in file 'test1' to 'This is second commit'.
+Commit and push to remote branch.
+
+git switch staging
+gedit test1 => Modified line and saved
+git add test1
+git commit -m 'Modified test1'
+git push origin staging
+
+====================================
+
+Move to project1.
+Switch to staging branch.
+Change the text in file 'test1' to 'This is third commit'.
+Commit and push to remote branch. (Explain what happened here).
+
+cd ../project1
+git switch staging
+gedit test1 => Modified line and saved
+git add test1
+git commit -m 'Modified test1'
+git push origin staging
+Error => origin changed
+git pull origin staging
+Error => Solved conflicts
+git commit -m 'Merged with origin'
+git push origin master
+
+====================================
+
+Switch to master.
+Merge staging branch into master.
+
+git switch master
+git merge staging
+git add .
+git commit -m 'Staging Branch merged'
+
+====================================
+
+Create a new branch testing.
+Change the text to 'A is an alphabet' and commit.
+Repeat the 'step 18' seven times and each time update the alphabet 'A' to 'B' to 'C' etc.(Don't forget to commit the change everytime)
+Push the branch to github.
+
+git checkout -b testing
+gedit test1 => Modified file and saved
+git add .
+git commit -m 'Added A's definition'
+		|
+		|
+		|
+		|
+		|
+		|
+git push origin testing
+
+====================================
+
+Checkout to master.
+Change the text '1 is a number' and commit.
+Repeat the 'step 22' seven times and each time update the number '1' to '2' to '3' etc.(Don't forget to commit the change everytime)
+Push master branch to github.
+Now, rebase testing into master(and don't push the new master and testing branch).
+
+git checkout master
+gedit test1 => Modified file and saved
+git add .
+git commit -m 'Added 1's definition'
+		|
+		|
+		|
+		|
+		|
+		|
+git push origin master
+git rebase testing
+
+====================================
+
+Move to project2.
+Track testing branch.
+Checkout to master.
+Merge branch testing into master.
+
+cd ../project2
+git pull origin testing
+git switch master
+git merge testing
